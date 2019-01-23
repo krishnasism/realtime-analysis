@@ -5,6 +5,7 @@ import wave
 import random
 import speech_recognition as sr
 from threading import Thread
+import getimage
 
 
 ##function to recognize text from speech
@@ -14,7 +15,12 @@ def recognizeAudio(filename):
         speech=sr.AudioFile(filename)
         with speech as source:
             speech_extracted=r.record(speech)
-            print(r.recognize_google(speech_extracted))
+            term=r.recognize_google(speech_extracted)
+            print(term)
+            #open the image
+            if(len(term.strip())>0):
+                getimage.openInBrowser(term)
+            
     except Exception as e:
         print(str(e))
 
@@ -39,7 +45,7 @@ while(True):
         peak=np.average(np.abs(data))*2
         
         #check if silent
-        if(peak<200): ##do some tuning here boi
+        if(peak<600): ##do some tuning here boi
             ##Cut words and save words from microphone
             if(listening):
 
@@ -54,7 +60,7 @@ while(True):
                 
                 frames=[]
                 listening=False
-                print("SAVED")
+                #print("SAVED")
                 ##Start a new thread
                 t=Thread(target=recognizeAudio, args=(filename,))
                 t.start()
