@@ -14,7 +14,7 @@ def recognizeAudio(filename):
         speech=sr.AudioFile(filename)
         with speech as source:
             speech_extracted=r.record(speech)
-            r.recognize_google(speech_extracted)
+            print(r.recognize_google(speech_extracted))
     except Exception as e:
         print(str(e))
 
@@ -59,10 +59,10 @@ while(True):
                 t=Thread(target=recognizeAudio, args=(filename,))
                 t.start()
 
-            print("Not listening")
+            #print("Not listening")
         else:
             listening=True
-            print("Listening")
+            #print("Listening")
             #data_audio=stream.read(CHUNK)
             frames.append(data)
             
