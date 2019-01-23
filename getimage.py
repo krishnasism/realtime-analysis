@@ -38,7 +38,8 @@ def downloadImage(searchTerm):
     f=open(searchTerm+'.jpg','wb') 
     f.write(requests.get(linkImg).content)
     f.close()
-    img=img.open(searchTerm+.'.jpg')
+
+    img=Image.open(searchTerm+'.jpg')
     img.show()
    
     
