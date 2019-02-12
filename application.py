@@ -1,5 +1,4 @@
 ## Problem Statement : Generate pictures in realtime
-
 import pyaudio
 import numpy as np
 import wave
@@ -7,6 +6,7 @@ import random
 import speech_recognition as sr
 from threading import Thread
 import getimage
+from twitter import getTweets
 
 ##Recognize text from speech
 def recognizeAudio(filename):
@@ -16,6 +16,9 @@ def recognizeAudio(filename):
         with speech as source:
             speech_extracted=r.record(speech)
             term=r.recognize_google(speech_extracted)
+
+            t1=Thread(target=getTweets, args=(term,))
+            t1.start()
             print(term)
             #open the image
             if(len(term.strip())>0):
@@ -44,7 +47,6 @@ while(True):
     while(True):
         data=np.fromstring(stream.read(CHUNK),dtype=np.int16)
         peak=np.average(np.abs(data))*2
-        0
 
         #check if silent
         if(peak<600): ##do some tuning here boi
@@ -67,6 +69,7 @@ while(True):
                 t=Thread(target=recognizeAudio, args=(filename,))
                 t.start()
 
+
             #print("Not listening")
         else:
             listening=True
@@ -79,4 +82,3 @@ while(True):
 stream.stop_stream()
 stream.close()
 p.terminate()
-

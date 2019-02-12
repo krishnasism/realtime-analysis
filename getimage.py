@@ -15,7 +15,6 @@ def openInBrowser(searchTerm):
 
 ##Download the image for future implementation
 def downloadImage(searchTerm):
-
     #use google custom search to retrieve the first image the serach returns
     service = build("customsearch", "v1",
             developerKey=APIKEY)
@@ -27,6 +26,7 @@ def downloadImage(searchTerm):
       fileType='jpg',
       safe='off',
     ).execute()
+    #pprint(res)
     linkImg=""
 
     #extract link from returned JSON String
@@ -39,9 +39,8 @@ def downloadImage(searchTerm):
     f.write(requests.get(linkImg).content)
     f.close()
 
+    #uncomment to open image automatically
+    """
     img=Image.open(searchTerm+'.jpg')
     img.show()
-   
-    
-    
-    
+    """
