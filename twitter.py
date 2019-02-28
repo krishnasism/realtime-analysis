@@ -1,13 +1,16 @@
 def getTweets(query):
+    import apistore
     import tweepy
     import csv
     import pandas as pd
-    ####input your credentials here
-    consumer_key = 'lGL1qanIIla3zP3jt9RJkmBOC'
-    consumer_secret = 'NZZcUgUMeYz6iGtFZTSexbjXiYshTTKpPfo3mSf8ut6VsFBFhx'
-    access_token = '806132871823912964-kq6Tc8lwiOrSwoGvUPcVOiSV3YJEJbP'
-    access_token_secret = 'VT7LGrqI94nP4Kq5w0FS7hURJAhD3FtYim9r6NScGkvEd'
+   
+    ####set your credentials here
 
+    consumer_key=apistore.consumer_key
+    consumer_secret=apistore.consumer_secret
+    access_token=apistore.access_token
+    access_token_secret=apistore.access_token_secret
+    
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth,wait_on_rate_limit=True)
@@ -16,8 +19,8 @@ def getTweets(query):
     #Use csv Writer
     csvWriter = csv.writer(csvFile)
 
-    for tweet in tweepy.Cursor(api.search,query,count=100,
+    for tweet in tweepy.Cursor(api.search,query,count=5,
                             lang="en",
-                            since="2019-02-6").items():
-        print (tweet.created_at, tweet.text)
+                            since="2019-02-28").items():
+        #print (tweet.created_at, tweet.text)
         csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])

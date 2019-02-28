@@ -7,8 +7,6 @@ from PIL import Image
 import apistore #make your own, this is private data
 APIKEY=apistore.APIKEY #assign your own API KEY
 cxID=apistore.cxID  #assign your own custom search engine ID
-
-
 ##Open the term that was extracted from the speech in the default web browser
 def openInBrowser(searchTerm):
     webbrowser.open_new_tab('https://www.google.com/search?tbm=isch&q='+searchTerm)
@@ -35,9 +33,19 @@ def downloadImage(searchTerm):
         print(linkImg)
 
     #download image
-    f=open(searchTerm+'.jpg','wb') 
+    filename=searchTerm+'.jpg'
+    f=open(filename,'wb') 
     f.write(requests.get(linkImg).content)
-    f.close()
+
+    f.close() 
+    im = Image.open(filename)
+    width=485
+    height=270
+    im=im.resize((485,270),Image.ANTIALIAS)
+    im.save(filename)
+    import unknown_support
+    unknown_support.setImage(filename)
+    
 
     #uncomment to open image automatically
     """
