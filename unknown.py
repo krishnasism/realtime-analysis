@@ -61,7 +61,7 @@ class Toplevel1:
             "roman -underline 0 -overstrike 0"
 
         top.geometry("1366x705")
-        top.title("New Toplevel")
+        top.title("Realtime Analysis Tool")
         top.configure(background="#d9d9d9")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
@@ -101,10 +101,10 @@ class Toplevel1:
         self.Label1.configure(foreground="#000000")
         self.Label1.configure(highlightbackground="#d9d9d9")
         self.Label1.configure(highlightcolor="black")
-        self.Label1.configure(text='''Tweets''')
+        self.Label1.configure(text='''News''')
 
         self.Label2 = tk.Label(top)
-        self.Label2.place(relx=0.388, rely=0.085, height=21, width=42)
+        self.Label2.place(relx=0.388, rely=0.085, height=21, width=120)
         self.Label2.configure(activebackground="#f9f9f9")
         self.Label2.configure(activeforeground="black")
         self.Label2.configure(background="#d9d9d9")
@@ -112,7 +112,7 @@ class Toplevel1:
         self.Label2.configure(foreground="#000000")
         self.Label2.configure(highlightbackground="#d9d9d9")
         self.Label2.configure(highlightcolor="black")
-        self.Label2.configure(text='''Trends''')
+        self.Label2.configure(text='''Trending on Twitter''')
         
 
         self.Label3 = tk.Label(top)
@@ -164,7 +164,7 @@ class Toplevel1:
         self.Label5.configure(disabledforeground="#a3a3a3")
         self.Label5.configure(foreground="#000000")
 
-        image=PIL.Image.open("thanks.jpg")
+        image=PIL.Image.open("image_dummy.png")
         photo_image=PIL.ImageTk.PhotoImage(image)
 
         self.Label5.configure(image=photo_image)
@@ -181,12 +181,31 @@ class Toplevel1:
         self.Label6.configure(text='''Trends Placeholder''')
         self.Label6.configure(width=200)
 
-        newsImage=PIL.Image.open("screenshotOfWebPage.png")
+        newsImage=PIL.Image.open("screenshotOfWebPage_dummy.png")
         newsImage_photo_image=PIL.ImageTk.PhotoImage(newsImage)
 
         self.Label6.configure(image=newsImage_photo_image)
         self.Label6.image=newsImage_photo_image
         self.Label6.configure(width=494)
+
+        
+        
+        self.Label7 = tk.Label(top)
+        self.Label7.place(relx=0.400, rely=0.128, height=291, width=400)
+        self.Label7.configure(text='''image''')
+        #img = PIL.ImageTk.PhotoImage(PIL.Image.open("game.jpg"))
+        self.Label7.configure(background="#d9d9d9")
+        self.Label7.configure(disabledforeground="#a3a3a3")
+        self.Label7.configure(foreground="#000000")
+
+        image=PIL.Image.open("graph_dummy.png")
+        photo_image=PIL.ImageTk.PhotoImage(image)
+
+        self.Label7.configure(image=photo_image)
+        self.Label7.image=photo_image
+        self.Label7.configure(width=400)
+
+
 
 if __name__ == '__main__':
     vp_start_gui()

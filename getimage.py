@@ -33,7 +33,7 @@ def downloadImage(searchTerm):
         print(linkImg)
 
     #download image
-    filename=searchTerm+'.jpg'
+    filename="downloads/"+searchTerm+'.jpg'
     f=open(filename,'wb') 
     f.write(requests.get(linkImg).content)
 

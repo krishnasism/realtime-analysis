@@ -63,7 +63,7 @@ def getAudio():
                 if(listening):
 
                     ##Save the audio to disk
-                    filename='test'+str(random.randint(0,10000))+'.wav'
+                    filename='downloads/test'+str(random.randint(0,10000))+'.wav'
                     wavefile=wave.open(filename,'wb')
                     wavefile.setnchannels(1)
                     wavefile.setsampwidth(pyaudio.get_sample_size(pyaudio.paInt16))

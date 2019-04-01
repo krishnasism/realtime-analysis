@@ -16,22 +16,22 @@ def takescreenshot(query):
                             chrome_options=chrome_options
                             )  
     driver.get("https://news.google.com/search?q="+query+"&hl=en-IN&gl=IN&ceid=IN%3Aen")
-    driver.get_screenshot_as_file("screenshotOfWebPage.png")
+    driver.get_screenshot_as_file("downloads/screenshotOfWebPage.png")
     driver.close()
 
     import cv2
     from PIL import Image
     
     #crop
-    img = cv2.imread("screenshotOfWebPage.png")
+    img = cv2.imread("downloads/screenshotOfWebPage.png")
     crop_img = img[70:740, 280:980]
-    cv2.imwrite("screenshotOfWebPage.png",crop_img)
+    cv2.imwrite("downloads/screenshotOfWebPage.png",crop_img)
 
     #resize
-    im=Image.open("screenshotOfWebPage.png")
+    im=Image.open("downloads/screenshotOfWebPage.png")
     width=350
     height=600
     im=im.resize((width,height),Image.ANTIALIAS)
-    im.save("screenshotOfWebPage.png")
+    im.save("downloads/screenshotOfWebPage.png")
     
     unknown_support.setNewsImage()

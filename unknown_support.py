@@ -52,10 +52,17 @@ def setImage(fname):
     w.Label5.image=photo_image
 
 def setNewsImage():
-    newsImage=Image.open("screenshotOfWebPage.png")
+    newsImage=Image.open("downloads/screenshotOfWebPage.png")
     newsImage_photo_image=ImageTk.PhotoImage(newsImage)
     w.Label6["image"]=newsImage_photo_image
     w.Label6.image=newsImage_photo_image
+
+def setTwitterImage():
+    twitterImage=Image.open("downloads/graph.png")
+    twitterImage_photo_image=ImageTk.PhotoImage(twitterImage)
+
+    w.Label7["image"]=twitterImage_photo_image
+    w.Label7.image=twitterImage_photo_image
 
 
 
