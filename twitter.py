@@ -89,7 +89,7 @@ def getTweets(query):
     polarity = polarity / NoOfTerms
 
     # printing out data
-    print("How people are reacting on " + searchTerm + " by analyzing " + str(NoOfTerms) + " tweets.")
+    print("How people are reacting to " + searchTerm + " by analyzing " + str(NoOfTerms) + " tweets.")
     print()
     print("General Report: ")
 
