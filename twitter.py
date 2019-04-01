@@ -1,6 +1,13 @@
 import sys,tweepy,csv,re
 from textblob import TextBlob
+import unknown_support
+
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
+import cv2
+from PIL import Image
 
 tweets=[]
 tweetText=[]
@@ -135,8 +142,7 @@ def plotPieChart(positive, wpositive, spositive, negative, wnegative, snegative,
     plt.tight_layout()
     plt.savefig('downloads/graph.png')
 
-    import cv2
-    from PIL import Image
+
 
     #resize
     im=Image.open("downloads/graph.png")
@@ -144,7 +150,6 @@ def plotPieChart(positive, wpositive, spositive, negative, wnegative, snegative,
     height=291
     im=im.resize((width,height),Image.ANTIALIAS)
     im.save("downloads/graph.png")
-    import unknown_support
     unknown_support.setTwitterImage()
     
     
