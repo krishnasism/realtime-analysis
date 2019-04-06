@@ -11,6 +11,23 @@ from twitter import getTweets
 import unknown_support
 from takescreenshot import takescreenshot
 ##Recognize text from speech
+
+def startProcess(term):
+    
+    t1=Thread(target=getTweets, args=(term,))
+    t1.start()
+    print(term)
+
+    t2=Thread(target=takescreenshot,args=(term,))
+    t2.start()
+
+    unknown_support.changelabel(term)
+
+    #open the image
+    if(len(term.strip())>0):
+        #getimage.openInBrowser(term) #open in browser
+        getimage.downloadImage(term) #download image for further processing
+
 def recognizeAudio(filename):
     try:
         r=sr.Recognizer()
@@ -19,19 +36,7 @@ def recognizeAudio(filename):
             speech_extracted=r.record(speech)
             term=r.recognize_google(speech_extracted)
 
-            t1=Thread(target=getTweets, args=(term,))
-            t1.start()
-            print(term)
-
-            t2=Thread(target=takescreenshot,args=(term,))
-            t2.start()
-
-            unknown_support.changelabel(term)
-
-            #open the image
-            if(len(term.strip())>0):
-                #getimage.openInBrowser(term) #open in browser
-                getimage.downloadImage(term) #download image for further processing
+            startProcess(term)
             
     except Exception as e:
         print(str(e))

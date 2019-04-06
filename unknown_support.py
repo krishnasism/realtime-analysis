@@ -9,6 +9,7 @@ import sys
 import application
 import cv2
 from PIL import Image, ImageTk
+from threading import Thread
 try:
     import Tkinter as tk
 except ImportError:
@@ -64,6 +65,12 @@ def setTwitterImage():
     w.Label7["image"]=twitterImage_photo_image
     w.Label7.image=twitterImage_photo_image
 
-
-
+def readText():
+    try:
+        s=w.Entry1.get()
+        #running on main thread makes the program hang 
+        t1=Thread(target=application.startProcess, args=(s,))
+        t1.start()
+    except:
+        print("Something happened, let's not talk about it")
 

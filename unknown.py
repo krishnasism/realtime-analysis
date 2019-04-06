@@ -141,7 +141,7 @@ class Toplevel1:
         top.configure(menu = self.menubar)
 
         self.Button1 = tk.Button(top)
-        self.Button1.place(relx=0.007, rely=0.901, height=54, width=147)
+        self.Button1.place(relx=0.350, rely=0.01, height=20, width=70)
         self.Button1.configure(activebackground="#d9d9d9")
         self.Button1.configure(activeforeground="#000000")
         self.Button1.configure(background="#d9d9d9")
@@ -151,7 +151,7 @@ class Toplevel1:
         self.Button1.configure(highlightbackground="#d9d9d9")
         self.Button1.configure(highlightcolor="black")
         self.Button1.configure(pady="0")
-        self.Button1.configure(text='''Start Listening..''')
+        self.Button1.configure(text='''Voice''')
 
         self.Label5 = tk.Label(top)
         self.Label5.place(relx=0.015, rely=0.128, height=291, width=494)
@@ -205,6 +205,27 @@ class Toplevel1:
         self.Label7.image=photo_image
         self.Label7.configure(width=400)
 
+        self.Entry1 = tk.Entry(top)
+        self.Entry1.place(relx=0.010, rely=0.01,height=20, relwidth=0.273)
+        self.Entry1.configure(background="white")
+        self.Entry1.configure(disabledforeground="#a3a3a3")
+        self.Entry1.configure(font=font10)
+        self.Entry1.configure(foreground="#000000")
+        self.Entry1.configure(insertbackground="black")
+        self.Entry1.configure(width=164)
+
+        self.Button6 = tk.Button(top)
+        self.Button6.place(relx=0.280, rely=0.01, height=20, width=100)
+        self.Button6.configure(activebackground="#d9d9d9")
+        self.Button6.configure(activeforeground="#000000")
+        self.Button6.configure(background="#d9d9d9")
+        self.Button6.configure(command=unknown_support.readText)
+        self.Button6.configure(disabledforeground="#a3a3a3")
+        self.Button6.configure(foreground="#000000")
+        self.Button6.configure(highlightbackground="#d9d9d9")
+        self.Button6.configure(highlightcolor="black")
+        self.Button6.configure(pady="0")
+        self.Button6.configure(text='''Search''')
 
 
 if __name__ == '__main__':
