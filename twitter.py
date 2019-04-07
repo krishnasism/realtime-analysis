@@ -31,7 +31,11 @@ def getTweets(query):
     tweets = tweepy.Cursor(api.search, q=searchTerm, lang = "en").items(NoOfTerms)
 
     # Open/create a file to append data to
-    os.remove('downloads/result.csv')
+    try:
+        os.remove('downloads/result.csv')
+    except Exception:
+        pass
+        
     csvFile = open('downloads/result.csv', 'a')
 
     # Use csv writer
