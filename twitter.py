@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 
 import cv2
 from PIL import Image
+import os
 
 tweets=[]
 tweetText=[]
@@ -30,6 +31,7 @@ def getTweets(query):
     tweets = tweepy.Cursor(api.search, q=searchTerm, lang = "en").items(NoOfTerms)
 
     # Open/create a file to append data to
+    os.remove('downloads/result.csv')
     csvFile = open('downloads/result.csv', 'a')
 
     # Use csv writer
@@ -75,6 +77,13 @@ def getTweets(query):
     # Write to csv and close csv file
     csvWriter.writerow(tweetText)
     csvFile.close()
+
+
+    #summarize tweets
+    from summarize import startSummary
+    summary=startSummary()
+
+    unknown_support.insertToList(summary)
 
     # finding average of how people are reacting
     positive = percentage(positive, NoOfTerms)

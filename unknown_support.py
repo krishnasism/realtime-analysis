@@ -10,6 +10,8 @@ import application
 import cv2
 from PIL import Image, ImageTk
 from threading import Thread
+from nltk.tokenize import word_tokenize, sent_tokenize
+
 try:
     import Tkinter as tk
 except ImportError:
@@ -73,4 +75,11 @@ def readText():
         t1.start()
     except:
         print("Something happened, let's not talk about it")
+
+def insertToList(summary):
+    
+    w.Listbox2.delete(0,tk.END)
+    for sentence in summary:
+        w.Listbox2.insert(tk.END,str(sentence))
+        
 

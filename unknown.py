@@ -80,8 +80,8 @@ class Toplevel1:
         self.Listbox1.configure(width=334)'''
 
         self.Listbox2 = tk.Listbox(top)
-        self.Listbox2.place(relx=0.104, rely=0.596, relheight=0.386
-                , relwidth=0.611)
+        self.Listbox2.place(relx=0.010, rely=0.596, relheight=0.386
+                , relwidth=0.6875)
         self.Listbox2.configure(background="white")
         self.Listbox2.configure(disabledforeground="#a3a3a3")
         self.Listbox2.configure(font=font10)
@@ -116,7 +116,7 @@ class Toplevel1:
         
 
         self.Label3 = tk.Label(top)
-        self.Label3.place(relx=0.124, rely=0.567, height=21, width=35)
+        self.Label3.place(relx=0.010, rely=0.567, height=21, width=180)
         self.Label3.configure(activebackground="#f9f9f9")
         self.Label3.configure(activeforeground="black")
         self.Label3.configure(background="#d9d9d9")
@@ -124,10 +124,10 @@ class Toplevel1:
         self.Label3.configure(foreground="#000000")
         self.Label3.configure(highlightbackground="#d9d9d9")
         self.Label3.configure(highlightcolor="black")
-        self.Label3.configure(text='''News''')
+        self.Label3.configure(text='''What twitter is saying''')
 
         self.Label4 = tk.Label(top)
-        self.Label4.place(relx=0.020, rely=0.085, height=21, width=64)
+        self.Label4.place(relx=0.020, rely=0.085, height=21, width=200)
         self.Label4.configure(activebackground="#f9f9f9")
         self.Label4.configure(activeforeground="black")
         self.Label4.configure(background="#d9d9d9")
