@@ -4,9 +4,9 @@ import json
 from pprint import pprint
 import requests
 from PIL import Image
-import apistore #make your own, this is private data
-APIKEY=apistore.APIKEY #assign your own API KEY
-cxID=apistore.cxID  #assign your own custom search engine ID
+#make your own, this is private data
+APIKEY="AIzaSyCbXV-KvIfD4tu93q2DYDhP4Ce_n9zQun4" #assign your own API KEY
+cxID="017789681259770443618:hczrizxq6sw"  #assign your own custom search engine ID
 ##Open the term that was extracted from the speech in the default web browser
 def openInBrowser(searchTerm):
     webbrowser.open_new_tab('https://www.google.com/search?tbm=isch&q='+searchTerm)
