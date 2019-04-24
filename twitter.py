@@ -53,6 +53,7 @@ def getTweets(query):
     neutral = 0
 
 
+
     # iterating through tweets fetched
     for tweet in tweets:
         #Append to temp so that we can store in csv later. I use encode UTF-8

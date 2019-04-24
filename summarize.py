@@ -144,7 +144,7 @@ def summarize(sentences):
         #print(sentence)
 
         #make changes here to affect final summary
-        if sentence in sentence_score2.keys() and sentence_score2[sentence] > 1.6 * average_score:
+        if sentence in sentence_score2.keys() and sentence_score2[sentence] >  1.6 * average_score:
             summary.append(sentence)
     
     return(summary)
@@ -163,5 +163,9 @@ def startSummary():
 
     csvFile.close()
     sentences = list(set(sentences)) #remove duplicate tweets
-    summary=summarize(sentences)
+    summary=list(set(summarize(sentences)))
+
+    import numpy as np
+    np.savetxt("summarized.csv", summary, delimiter=",", fmt='%s', header="Summarized")
     return summary
+    
