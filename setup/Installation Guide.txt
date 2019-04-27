@@ -1,0 +1,12 @@
+To install required packages. Run : 
+
+pip install -r requirements.txt 
+-
+and install the .zip file inside libs folder.
+-
+pip install full/path/libs/tweet-preprocessor-0.4.0.zip
+
+Or, simply run the .bat file for Windows.(Tested and working!). Others are unstable and not working, better to do that manually.
+
+NOTE : 
+Please make sure that you have a clean environment. Sometimes, anaconda will have preinstalled libraries that will cause collisions, please remove all preinstalled libraries if any problems occur during installation! 
