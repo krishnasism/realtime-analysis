@@ -14,19 +14,28 @@ from takescreenshot import takescreenshot
 
 def startProcess(term):
     
-    t1=Thread(target=getTweets, args=(term,))
-    t1.start()
-    print(term)
+    try:
+        t1=Thread(target=getTweets, args=(term,))
+        t1.start()
+        print(term)
+    except Exception as e:
+        unknown_support.errorTweet()
 
-    t2=Thread(target=takescreenshot,args=(term,))
-    t2.start()
+    try:
+        t2=Thread(target=takescreenshot,args=(term,))
+        t2.start()
+    except Exception as e:
+        unknown_support.errorNews()
 
     unknown_support.changelabel(term)
 
-    #open the image
-    if(len(term.strip())>0):
-        #getimage.openInBrowser(term) #open in browser
-        getimage.downloadImage(term) #download image for further processing
+    try:
+        #open the image
+        if(len(term.strip())>0):
+            #getimage.openInBrowser(term) #open in browser
+            getimage.downloadImage(term) #download image for further processing
+    except:
+        unknown_support.errorImage()
 
 def recognizeAudio(filename):
     try:

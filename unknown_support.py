@@ -81,5 +81,23 @@ def insertToList(summary):
     w.Listbox2.delete(0,tk.END)
     for sentence in summary:
         w.Listbox2.insert(tk.END,str(sentence))
+    
         
+def errorTweet():
+    twitterImage=Image.open("errors/tweeterror.png")
+    twitterImage_photo_image=ImageTk.PhotoImage(twitterImage)
 
+    w.Label7["image"]=twitterImage_photo_image
+    w.Label7.image=twitterImage_photo_image
+    
+def errorImage():
+    image=Image.open("errors/imageerror.png")
+    photo_image=ImageTk.PhotoImage(image)
+    w.Label5["image"]=photo_image
+    w.Label5.image=photo_image
+
+def errorNews():
+    newsImage=Image.open("errors/newserror.png")
+    newsImage_photo_image=ImageTk.PhotoImage(newsImage)
+    w.Label6["image"]=newsImage_photo_image
+    w.Label6.image=newsImage_photo_image

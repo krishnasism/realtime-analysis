@@ -153,6 +153,7 @@ def startSummary():
     import csv
 
     text=""
+
     with open('downloads/result.csv','r') as csvFile:
         reader=csv.reader(csvFile)
         sentences=[]
@@ -166,6 +167,10 @@ def startSummary():
     summary=list(set(summarize(sentences)))
 
     import numpy as np
+    import os
+    if os.path.exists("summarized.csv"):
+        os.remove("summarized.csv")
+
     np.savetxt("summarized.csv", summary, delimiter=",", fmt='%s', header="Summarized")
     return summary
     

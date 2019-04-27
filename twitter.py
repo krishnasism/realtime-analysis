@@ -31,10 +31,9 @@ def getTweets(query):
     tweets = tweepy.Cursor(api.search, q=searchTerm, lang = "en").items(NoOfTerms)
 
     # Open/create a file to append data to
-    try:
-        os.remove('downloads/result.csv')
-    except Exception:
-        pass
+    import os
+    if os.path.exists("downloads/result.csv"):
+        os.remove("downloads/result.csv")
         
     csvFile = open('downloads/result.csv', 'a')
 
@@ -165,6 +164,8 @@ def plotPieChart(positive, wpositive, spositive, negative, wnegative, snegative,
     im=im.resize((width,height),Image.ANTIALIAS)
     im.save("downloads/graph.png")
     unknown_support.setTwitterImage()
+    tweets=[]
+    tweetText=[]
     
     
 
