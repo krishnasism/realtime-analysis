@@ -21,39 +21,39 @@ This is a screenshot, after a topic has been searched for. This is the screen wh
 ### The manual way
 For non-Windows users(and for Windows users for whom the setup.bat file didn't work), please install manually. Follow the steps below : 
 * Navigate to the setup folder in Command Prompt, or a shell
-` 
+```
 pip install -r requirements.txt
-` 
+```
 or
-`
+```
 python -m pip install -r requirements.txt
-`
+```
 This will download and install the required libraries. 
 ## Install tweet-preprocessor-0.4.0.zip
-`
+```
 pip install YOUR_CURRENT_DIRECTORY_PATH/libs/tweet-preprocessor-0.4.0.zip
-`
+```
 or
 
-`
+```
 python -m pip install YOUR_CURRENT_DIRECTORY_PATH/libs/tweet-preprocessor-0.4.0.zip
-`
+```
 
 This library is not hosted properly online, therefore you have to install the .zip file that is provided. Simply follow the step above. Example after replacing YOUR_CURRENT_DIRECTORY_PATH
-`
+```
 pip install C:\Users\Krishnasis\Desktop\your-powerpoint-realtime\setup\libs\tweet-preprocessor-0.4.0.zip
-`
+```
 or
-`
+```
 python -m pip install C:\Users\Krishnasis\Desktop\your-powerpoint-realtime\setup\libs\tweet-preprocessor-0.4.0.zip
-`
+```
 
 ### Running
 * Simply navigate to the previous folder, i.e., root. 
 * Run the run.bat file 
 or 
-`
+```
 python unknown.py
-`
+```
 You will get a window(hopefully).
 Have fun!
